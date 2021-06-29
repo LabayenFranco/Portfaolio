@@ -1,0 +1,134 @@
+:root {
+    --bg-color: hsl(49 37% 94%);
+    --typewriterSpeed: 3s;
+    --typewriterCharacters: 14;
+}
+  
+body {
+    margin: 0;
+    display: grid;
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--bg-color);
+    place-content: center;
+    text-align: center;
+    margin: 0;
+    min-height: 100vh;
+}
+
+
+nav {
+    position:absolute;
+    width: 100vw;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    justify-content:space-between;
+    padding: 0;
+    z-index: 100;
+    display: inline-block;
+    width: 80vw;
+    position:absolute;
+    bottom: 6vh;
+    left: 50vw;
+    margin-left: -40vw;
+    text-align: justify;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li{
+    list-style: none;
+    display: inline-block;
+}
+
+a{
+    align-items: center;
+    display: inline-block;
+    text-decoration: none;
+    margin-left: 6vw;
+    margin-right: 6vw;
+    color: black;
+    position: relative;
+    transition: transform .5s;
+    transform: translateY(1vh);
+    opacity: 0;
+    animation: fadeIn 1s ease calc(var(--typewriterSpeed) + 3s) forwards;
+}
+
+a:hover{
+    transform: translateY(-1vh);
+}
+
+
+  
+h1 {
+    font-size: clamp(1rem, 3vw + 1rem, 4rem);
+    position: relative;
+    font-family: 'Inconsolata', monospace;
+    width: max-content;
+    align-content: center;
+}
+  
+h1::before,
+h1::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+  
+h1::before {
+    background: var(--bg-color);
+    animation: typewriter var(--typewriterSpeed)
+      steps(var(--typewriterCharacters)) 1s forwards;
+}
+
+h1::after {
+    width: 0.125em;
+    background: black;
+    animation: typewriter var(--typewriterSpeed)
+        steps(var(--typewriterCharacters)) 1s forwards,
+      blink 750ms steps(var(--typewriterCharacters)) infinite;
+}
+  
+.subtitle {
+    color: hsl(0 0% 0% / 0.7);
+    font-size: 2rem;
+    font-weight: 400;
+    opacity: 0;
+    transform: translateY(-3rem);
+    animation: fadeIn 2s ease calc(var(--typewriterSpeed) + 2s) forwards;
+}
+
+.menu{
+    text-align: center;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.titles{
+    width: 400px;
+}
+
+
+  
+@keyframes typewriter {
+    to {
+      left: 100%;
+    }
+}
+  
+@keyframes blink {
+    to {
+      background: transparent;
+    }
+}
+  
+@keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+
